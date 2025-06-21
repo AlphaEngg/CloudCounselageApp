@@ -18,13 +18,13 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler().postDelayed(() -> {
             // Check if user is already logged in
-//            if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-//                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
-//            } else {
-//                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-//            }
-            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-            finish();
+            if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+            } else {
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            }
+//            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+//            finish();
         }, SPLASH_DURATION);
     }
 }

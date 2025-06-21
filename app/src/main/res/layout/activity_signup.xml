@@ -78,6 +78,35 @@
             style="@style/ButtonStyle"
             android:text="@string/signup" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/light_gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:text="Or SignUp with"
+            android:textColor="@color/gray" />
+
+        <Button
+            android:id="@+id/googleSignUpButton"
+            style="@style/ButtonStyle"
+            android:text="Sign up with Google"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/facebookSignUpButton"
+            style="@style/ButtonStyle"
+            android:text="Sign up with Facebook"
+            android:backgroundTint="@color/primary_orange"
+            android:layout_marginTop="8dp" />
+
+
         <TextView
             android:id="@+id/loginTextView"
             android:layout_width="wrap_content"
