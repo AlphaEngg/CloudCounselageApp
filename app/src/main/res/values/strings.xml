@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Cloud Counselage</string>
+    <string name="company_tagline">Building Global Ecosystem</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="retype_password">Re-type Password</string>
+    <string name="google_login">Continue with Google</string>
+    <string name="facebook_login">Continue with Facebook</string>
+    <string name="chatbot">Chatbot</string>
+    <string name="home">Home</string>
+    <string name="logout">Logout</string>
+    <string name="facebook_app_id">1347633342985453</string>
+    <string name="fb_login_protocol_scheme">fb1347633342985453</string>
+    <string name="default_web_client_id">665682058969-b7bs1o42vm5j30a1p16q8fgh4japlhir.apps.googleusercontent.com
+</string>
 </resources>
