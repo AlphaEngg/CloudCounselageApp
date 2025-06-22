@@ -1,5 +1,7 @@
 package com.example.cloudcounselage;
 
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +27,9 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
     @Override
     public void onBindViewHolder(ChatViewHolder holder, int position) {
         ChatbotActivity.ChatMessage message = chatMessages.get(position);
-        holder.messageTextView.setText(message.getMessage());
+        holder.messageTextView.setText(Html.fromHtml(message.getMessage()));
+        holder.messageTextView.setMovementMethod(LinkMovementMethod.getInstance());
+
 
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) holder.messageTextView.getLayoutParams();
         if (message.isUser()) {

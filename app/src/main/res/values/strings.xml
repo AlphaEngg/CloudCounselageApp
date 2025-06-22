@@ -10,6 +10,7 @@
     <string name="google_login">Continue with Google</string>
     <string name="facebook_login">Continue with Facebook</string>
     <string name="chatbot">Chatbot</string>
+    <string name="chatbotInfo">Have questions about our services, career opportunities, or want to learn more about Cloud Counselage? Our chatbot is here to help you 24/7!</string>
     <string name="home">Home</string>
     <string name="logout">Logout</string>
     <string name="facebook_app_id">1347633342985453</string>
