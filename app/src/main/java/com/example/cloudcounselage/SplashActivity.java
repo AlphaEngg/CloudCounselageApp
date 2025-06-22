@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             }
 //            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-//            finish();
+            finish();
         }, SPLASH_DURATION);
     }
 }
