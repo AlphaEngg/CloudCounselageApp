@@ -1,4 +1,3 @@
-// 2. ValidationUtils.java
 package com.example.cloudcounselage.utils;
 
 import android.util.Patterns;

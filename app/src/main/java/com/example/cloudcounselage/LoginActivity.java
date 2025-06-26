@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.GoogleAuthProvider;
 import java.util.Arrays;
 
@@ -180,16 +181,40 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleFacebookAccessToken(AccessToken token) {
-        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-        firebaseAuth.signInWithCredential(credential)
+        AuthCredential facebookCredential = FacebookAuthProvider.getCredential(token.getToken());
+
+        firebaseAuth.signInWithCredential(facebookCredential)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Facebook login successful", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                         finish();
                     } else {
-                        Toast.makeText(LoginActivity.this, "Facebook authentication failed", Toast.LENGTH_SHORT).show();
+                        Exception e = task.getException();
+                        if (e instanceof FirebaseAuthUserCollisionException) {
+                            FirebaseAuthUserCollisionException collisionException = (FirebaseAuthUserCollisionException) e;
+                            String email = collisionException.getEmail();
+
+                            FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email)
+                                    .addOnSuccessListener(result -> {
+                                        if (result.getSignInMethods().contains(GoogleAuthProvider.GOOGLE_SIGN_IN_METHOD)) {
+                                            Toast.makeText(LoginActivity.this,
+                                                    "This email is already registered with Google. Please log in with Google to link Facebook.",
+                                                    Toast.LENGTH_LONG).show();
+                                            // You can store the facebookCredential temporarily to link after Google login
+                                        } else {
+                                            Toast.makeText(LoginActivity.this,
+                                                    "Email already in use with another provider.",
+                                                    Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                        } else {
+                            Toast.makeText(LoginActivity.this,
+                                    "Facebook authentication failed: " + e.getMessage(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
     }
+
 }

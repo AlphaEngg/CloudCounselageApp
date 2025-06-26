@@ -1,4 +1,3 @@
-// ChatbotActivity.java (Final Version with More Info & FAQs)
 package com.example.cloudcounselage;
 
 import android.os.Bundle;

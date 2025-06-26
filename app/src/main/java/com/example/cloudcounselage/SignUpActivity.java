@@ -175,18 +175,43 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void handleFacebookAccessToken(AccessToken token) {
-        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-        firebaseAuth.signInWithCredential(credential)
+        AuthCredential facebookCredential = FacebookAuthProvider.getCredential(token.getToken());
+
+        firebaseAuth.signInWithCredential(facebookCredential)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+
                         Toast.makeText(SignUpActivity.this, "Facebook login successful", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
                         finish();
                     } else {
-                        Toast.makeText(SignUpActivity.this, "Facebook authentication failed", Toast.LENGTH_SHORT).show();
+                        Exception e = task.getException();
+                        if (e instanceof FirebaseAuthUserCollisionException) {
+
+                            FirebaseAuthUserCollisionException ex = (FirebaseAuthUserCollisionException) e;
+
+
+                            AuthCredential pendingFacebook = facebookCredential;
+
+
+                            String email = ex.getEmail();
+                            FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email)
+                                    .addOnSuccessListener(result -> {
+                                        if (result.getSignInMethods().contains(GoogleAuthProvider.GOOGLE_SIGN_IN_METHOD)) {
+
+                                            Toast.makeText(SignUpActivity.this, "Please log in with Google to link accounts", Toast.LENGTH_LONG).show();
+
+                                        } else {
+                                            Toast.makeText(SignUpActivity.this, "Account exists with different provider.", Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                        } else {
+                            Toast.makeText(SignUpActivity.this, "Facebook login failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
     }
+
 
     private void handleSocialAuth(AuthCredential cred) {
         firebaseAuth.signInWithCredential(cred)

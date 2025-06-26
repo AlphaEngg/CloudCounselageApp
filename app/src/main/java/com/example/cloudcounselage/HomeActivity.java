@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     private WebView videoWebView;
     private FirebaseAuth firebaseAuth;
     private Toolbar toolbar;
-    private final String youtubeVideoId = "JyqAtgKC4I4"; // Your YouTube video ID
+    private final String youtubeVideoId = "JyqAtgKC4I4";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,6 @@ public class HomeActivity extends AppCompatActivity {
             String displayName = user.getDisplayName();
             String email = user.getEmail();
 
-            // Try to get display name first, if not available use email username
             if (displayName != null && !displayName.trim().isEmpty()) {
                 welcomeTextView.setText("Welcome, " + displayName + "!");
             } else if (email != null) {
@@ -96,7 +95,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        // Embed YouTube video
+
         String videoUrl = "https://www.youtube.com/embed/" + youtubeVideoId + "?enablejsapi=1&autoplay=0&rel=0";
         String html = "<html><body style='margin:0;padding:0;'>" +
                 "<iframe width='100%' height='100%' " +
@@ -158,7 +157,6 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Prevent going back to login screen
         super.onBackPressed();
         moveTaskToBack(true);
     }

@@ -59,7 +59,6 @@
                 android:textSize="16sp"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Video Card - Moved here after welcome message -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +75,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🎥 Watch Our Story"
+                        android:text="Watch Our Story"
                         android:textColor="@color/primary_blue"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -100,7 +99,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Vision Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,7 +115,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🎯 Our Vision 2030"
+                        android:text="Our Vision 2030"
                         android:textColor="@color/primary_blue"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -133,7 +131,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Stats Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -150,7 +147,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="📊 Our Impact"
+                        android:text="Our Impact"
                         android:textColor="@color/primary_blue"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -239,7 +236,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Services Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -256,7 +252,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🚀 Our Services"
+                        android:text="Our Services"
                         android:textColor="@color/primary_blue"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -277,7 +273,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="💼 Consulting"
+                                android:text="• Consulting"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
                                 android:layout_marginBottom="4dp" />
@@ -285,7 +281,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🎨 Branding"
+                                android:text="• Branding"
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
 
@@ -300,7 +296,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="👥 Hiring"
+                                android:text="• Hiring"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
                                 android:layout_marginBottom="4dp" />
@@ -308,7 +304,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="📚 Learning &amp; Development"
+                                android:text="• Learning &amp; Development"
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
 
@@ -319,7 +315,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Chatbot Promotion Card -->
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -337,7 +333,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🤖 Want to Know More?"
+                        android:text="Want to Know More?"
                         android:textColor="@color/primary_blue"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -355,11 +351,34 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="💬 Click the Chat Support button below to get instant answers!"
+                        android:text="Click the Chat Support button below to get instant answers!"
                         android:textColor="@color/primary_blue"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:gravity="center" />
+
+                    <LinearLayout
+                        android:id="@+id/chatbotButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/btn_rounded"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginTop="20dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Chat Support"
+                            android:textColor="@color/white"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -367,40 +386,5 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation with Chatbot - Updated design -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/primary_blue"
-        android:gravity="center">
-
-        <LinearLayout
-            android:id="@+id/chatbotButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="💬"
-                android:textSize="20sp"
-                android:layout_marginBottom="2dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chat Support"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </LinearLayout>
